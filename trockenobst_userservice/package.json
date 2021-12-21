@@ -1,0 +1,19 @@
+{
+  "name": "trockenobst_userservice",
+  "version": "1.0.0",
+  "description": "user service of trockenobst, a very good distributed system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fr",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mongodb": "^4.2.2",
+    "uuid": "^8.3.2"
+  }
+}
