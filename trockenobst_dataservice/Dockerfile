@@ -9,4 +9,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD [ "node", "moistureDataService.js"]
+CMD [ "node", "index.js"]

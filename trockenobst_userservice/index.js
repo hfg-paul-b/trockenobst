@@ -15,7 +15,7 @@ const dbClient = new MongoClient(dbUri, { useNewUrlParser: true, useUnifiedTopol
 
 let userCollection;
 
-let sessions = { "test": "test" };
+let sessions = {};
 
 dbClient.connect(err => {
   if (err) {
@@ -80,16 +80,11 @@ app.post('/api/register', (req, res) => {
 });
 
 app.post('/api/validateToken', (req, res) => {
-  console.log("validating token");
-  let sentData = req.body;
-  if (sessions.hasOwnProperty(sentData.token)) {
-    res.status(200).send({ validToken: true });
-    console.log("token is valid");
-  }
-  else {
-    res.status(500).send({ validToken: false });
-    console.log("token is invalid");
-  }
+  console.log("processing sent token for validation");
+  let sentToken = req.body.token;
+  res.status(200).send({
+    tokenIsValid: sessions.hasOwnProperty(sentToken)
+  });
 });
 
 app.post('/api/login', (req, res) => {

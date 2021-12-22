@@ -70,21 +70,26 @@ app.post('/api/latest', (req, res) => {
   const sentToken = req.body.token;
   if (collection) {
     axios.post(process.env.USERSERVICE_LOCATION + "/api/validateToken/", { token: token })
-      .then(tokenCheckRes => {
-        console.log(tokenCheckRes.data)
-        if (tokenCheckRes.data.validToken) {
+      .then(tokValRes => {
+        console.log(tokValRes.data)
+        if (tokValRes.data.validToken) {
           console.log("token is valid");
           collection.find({}).sort({ 'createdAt': 1 }).next()
             .then(async (latest) => {
               console.log(latest);
-              res.send(latest);
+              res.status(200).send(latest);
             });
+        }
+        else {
+          console.log("invalid token");
+          res.status(401);
         }
       })
       .catch(tokenCheckErr => {
         //console.log(tokenCheckErr);
-        console.log("error checking token")
-      })
+        console.log("error checking token");
+        console.log(err.toString());
+      });
   }
 });
 
