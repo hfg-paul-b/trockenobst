@@ -1,12 +1,15 @@
-* Zu den [Abgabe-Requirements](doc/requirements.md)
-* Reminder: Zur Abgabe gehört auch ein Screencast in beliebiger Qualität und eure `.env` Files (und `config.h`, falls
-  nötig).
+_Zu den [Abgabe-Requirements](doc/requirements.md)_
+
+_**Reminder**: Zur Abgabe gehört auch ein Screencast in beliebiger Qualität und eure `.env` Files (und `config.h`, falls
+  nötig)._
+
+#Trockenobst
 
 Erklärung des Projekts in ein paar Sätzen. Eventuell Foto, Logo, Screenshot, etc.
 
 # Run
 
-kurze Erklärung für Außenstehende, was zu tun ist, umd as System zum Laufen zu bringen.
+Kurze Erklärung für Außenstehende, was zu tun ist, um das System zum Laufen zu bringen.
 
 # Projektaufbau
 
