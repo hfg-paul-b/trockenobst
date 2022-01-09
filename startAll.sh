@@ -16,18 +16,18 @@ docker image rm faebs/to_dataservice
 docker image rm faebs/to_userservice
 
 # going to each subfolder and building + running every service in docker
-cd trockenobst_userservice
+cd trockenobst_userservice ||return
 docker build . -t faebs/to_userservice
-docker run --rm -d  -p 3001:3001/tcp --name userservice faebs/to_userservice:latest 
+docker run --rm -d  -p 3001:3001/tcp --name userservice faebs/to_userservice:latest
 
 cd ..
-cd trockenobst_dataservice
+cd trockenobst_dataservice ||return
 docker build . -t faebs/to_dataservice
-docker run --rm -d  -p 3000:3000/tcp --name dataservice faebs/to_dataservice:latest 
+docker run --rm -d  -p 3000:3000/tcp --name dataservice faebs/to_dataservice:latest
 
 cd ..
-cd trockenobst_frontend
+cd trockenobst_frontend ||return
 docker build . -t faebs/to_frontend
-docker run --rm -d  -p 8080:8080/tcp --name frontend faebs/to_frontend:latest 
+docker run --rm -d  -p 8080:8080/tcp --name frontend faebs/to_frontend:latest
 
 firefox http://127.0.0.1:8080
