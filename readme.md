@@ -1,9 +1,9 @@
 _Zu den [Abgabe-Requirements](doc/requirements.md)_
 
 _**Reminder**: Zur Abgabe gehört auch ein Screencast in beliebiger Qualität und eure `.env` Files (und `config.h`, falls
-  nötig)._
+nötig)._
 
-#Trockenobst
+# Trockenobst
 
 Erklärung des Projekts in ein paar Sätzen. Eventuell Foto, Logo, Screenshot, etc.
 
