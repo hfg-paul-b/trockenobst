@@ -3,7 +3,7 @@
 #include "config.h"
 
 const int interval = 5000;
-const unsigned int MOISTURE_PIN = 2;
+const unsigned int moisPin = D7;
 String clientId;
 unsigned int moisture;
 WiFiClient espClient;
@@ -12,7 +12,7 @@ char msg[50];
 
 void setup()
 {
-  pinMode(MOISTURE_PIN, INPUT);
+  pinMode(moisPin, INPUT);
   Serial.begin(115200);
   connect_wifi();
   client.setServer(MQTT_BROKER, 1883);
@@ -57,7 +57,7 @@ void reconnect()
 
 void loop()
 {
-  moisture = analogRead(MOISTURE_PIN);
+  moisture = analogRead(moisPin);
   if (!client.connected())
   {
     reconnect();

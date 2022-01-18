@@ -22,7 +22,7 @@ dbClient.connect(err => {
     console.log(err);
   }
   else {
-    userCollection = dbClient.db("moistureTracking").collection("users");
+    userCollection = dbClient.db("trockenobst").collection("userData");
     console.log("connected to mongodb");
   }
 });
@@ -39,7 +39,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 
 app.listen(port, () => {
-  console.log(`UserService listening at http://127.0.0.1:${port}`);
+  console.log(`UserService listening at http://127.0.0.1:${}`);
 });
 
 app.get('/', (req, res) => {

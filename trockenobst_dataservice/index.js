@@ -1,26 +1,28 @@
 require('dotenv').config();
 const { v4: uuidv4 } = require('uuid');
 
-const dbUri =
-  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}?retryWrites=true&w=majority`;
-
 const { MongoClient } = require('mongodb');
-
+const dbUri = "mongodb+srv://dbUser:2203@cluster0.i7srp.mongodb.net/trockenobst?retryWrites=true&w=majority";
 const dbClient = new MongoClient(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
-
+let connection = ""
 let collection;
 
-dbClient.connect(err => {
-  if (err) {
-    console.log(err);
-  }
-  else {
-    collection = dbClient.db("moistureTracking").collection("moistureData");
-    console.log("connected to mongodb");
-  }
+let adminPost = ""
 
-});
+connectDB()
 
+async function connectDB() {
+  try {
+    await client.connect();
+    connection = client.db("trockenobst").collection("userData")
+
+    console.log("Database connected!")
+
+  } catch (error) {
+    console.error("Database connection attempt failed!")
+    await client.close();
+  }
+}
 
 const mqtt = require('mqtt');
 const topic = process.env.MQTT_TOPIC;
@@ -50,6 +52,18 @@ mqttClient.on("message", function (topic, message) {
     collection.insertOne(msg);
   }
 });
+
+
+// Basic - Login 1
+async function basiclogin (email, password) {
+  const response = await zlFetch.post(loginEndpoint, {
+    auth: {
+      username: email,
+      password: password
+    },
+      body: { /*...*/ }
+  })
+}
 
 
 const express = require('express');

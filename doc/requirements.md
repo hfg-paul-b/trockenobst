@@ -13,7 +13,7 @@ zur [Doku-Vorlage](../readme.md)
 ## Projektaufbau
 
 * Sensormodul, das Daten erhebt und in ein System einspeist
-* Begründung Kommunikationstechnologien
+* Begründung Kommunikationstechnologien 
 * Überlegungen zur Skalierbarkeit: Anzahl User, Anzahl Sensormodule je User (was verändert sich wie, wenn man weiter
   skaliert, bisschen Text bitte)
 * Backend mit eigener API für HTTP-Requests
